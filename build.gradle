@@ -1,8 +1,8 @@
 plugins {
-    id 'java'
     id 'idea'
     id "io.spring.dependency-management" version "1.0.11.RELEASE"
     id "com.github.johnrengelman.shadow" version "7.1.2" apply false
+    id 'com.gradle.build-scan' version '1.0'
 }
 
 idea {
@@ -19,18 +19,40 @@ allprojects {
     group "ru.otus.homework"
 
     repositories {
+        mavenLocal()
         mavenCentral()
     }
 
     apply plugin: "io.spring.dependency-management"
     dependencyManagement {
+        imports {
+            mavenBom("org.springframework.boot:spring-boot-dependencies:2.5.2")
+        }
         dependencies {
             dependency 'com.google.guava:guava:31.0.1-jre'
         }
     }
+
+    configurations.all {
+        resolutionStrategy {
+            failOnVersionConflict()
+        }
+        resolutionStrategy {
+            force("javax.servlet:servlet-api:2.4")
+            force("commons-logging:commons-logging:1.1.1")
+            force("commons-lang:commons-lang:2.5")
+            force("org.codehaus.jackson:jackson-core-asl:1.8.8")
+            force("org.codehaus.jackson:jackson-mapper-asl:1.8.3")
+            force("org.codehaus.jettison:jettison:1.1")
+            force("net.java.dev.jna:jna:5.8.0")
+        }
+    }
 }
 
-
-test {
-    useJUnitPlatform()
+task managedVersions {
+    doLast {
+        dependencyManagement.managedVersions.each {
+            println it
+        }
+    }
 }
