@@ -1,8 +1,8 @@
-package ru.otus.homework;
+package ru.otus.homework.exceptions;
 
 import java.util.function.Supplier;
 
-import static ru.otus.homework.CheckedFunction0Module.sneakyThrow;
+import static ru.otus.homework.exceptions.CheckedFunction0Module.sneakyThrow;
 
 @FunctionalInterface
 public interface CheckedFunction0<R> {

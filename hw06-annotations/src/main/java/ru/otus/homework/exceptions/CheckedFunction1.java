@@ -1,8 +1,8 @@
-package ru.otus.homework;
+package ru.otus.homework.exceptions;
 
 import java.util.function.Function;
 
-import static ru.otus.homework.CheckedFunction1Module.sneakyThrow;
+import static ru.otus.homework.exceptions.CheckedFunction1Module.sneakyThrow;
 
 @FunctionalInterface
 public interface CheckedFunction1<T1, R> {
@@ -26,9 +26,10 @@ public interface CheckedFunction1<T1, R> {
 }
 
 interface CheckedFunction1Module {
-    
+
     @SuppressWarnings("unchecked")
     static <T extends Throwable, R> R sneakyThrow(Throwable t) throws T {
         throw (T) t;
     }
+
 }
