@@ -6,7 +6,7 @@ import ru.otus.homework.annotations.Test;
 
 public class PersonTest {
 
-    @After
+    @Before
     public void methodBefore() {
         System.out.println("methodBefore()");
     }
@@ -16,7 +16,7 @@ public class PersonTest {
         System.out.println("methodTest()");
     }
 
-    @Before
+    @After
     public void methodAfter() {
         System.out.println("methodAfter()");
     }
