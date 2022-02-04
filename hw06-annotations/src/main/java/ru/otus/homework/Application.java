@@ -1,9 +1,10 @@
 package ru.otus.homework;
 
-import ru.otus.homework.domain.TesterClass;
+import ru.otus.homework.domain.TesterClassStream;
 
 public class Application {
     public static void main(String... args) throws ClassNotFoundException {
-        TesterClass.runTester("ru.otus.homework.domain.PersonTest");
+        TesterClassStream.runTesterStream("ru.otus.homework.domain.PersonTest");
+        //TesterClass.runTester("ru.otus.homework.domain.PersonTest");
     }
 }
