@@ -1,0 +1,5 @@
+-Xms256m = spend msec:11464, sec:11
+-Xms128m = spend msec:12750, sec:12
+-Xms64m = spend msec:12523, sec:12
+
+-Xms2048m = spend msec:12523, sec:12
