@@ -1,5 +1,40 @@
--Xms256m = spend msec:11464, sec:11
--Xms128m = spend msec:12750, sec:12
--Xms64m = spend msec:12523, sec:12
+=================================================================================
+(1) при -Xms3g у GC -XX:+UseG1GC время не уменьшается. Оптимальный размер Heap 3g
+=================================================================================
+-Xms256m = не хватает памяти, не запускается
 
--Xms2048m = spend msec:12523, sec:12
+-Xms512m = spend msec:16452, sec:16,  CPU usage: 8.2%    GC activity: 6.3%  Used: 199,665,880B    -XX:+UseSerialGC
+-Xms2g   = spend msec:10807, sec:10,  CPU usage: 8.0%    GC activity: 6.4%  Used: 1,414,621,504B  -XX:+UseSerialGC
+-Xms3g   = spend msec:8327, sec:8,    CPU usage: 8.8%    GC activity: 4.2%  Used: 606,390,048B    -XX:+UseSerialGC
+-Xms4g   = spend msec:7382, sec:7,    CPU usage: 8.8%    GC activity: 4.2%  Used: 794,999,640B    -XX:+UseSerialGC
+
+-Xms512m = spend msec:28074, sec:28,  CPU usage: 51.7%   GC activity: 7%    Used: 251,406,528B  -XX:+UseParallelGC
+-Xms2g =   spend msec:15737, sec:15,  CPU usage: 49.9%   GC activity: 6.7%  Used: 590,107,592B  -XX:+UseParallelGC
+-Xms3g =   spend msec:9182, sec:9,    CPU usage: 50.9%   GC activity: 6.8%  Used: 983,063,464B  -XX:+UseParallelGC
+-Xms4g =   spend msec:8530, sec:8,    CPU usage: 45.9%   GC activity: 5.8%  Used: 567,332,032B  -XX:+UseParallelGC
+
+-Xms256m = недостаточно Heap для запуска
+-Xms512m = spend msec:13161, sec:13,  CPU usage: 23.7%   GC activity: 1.4%   Used: 295,178,240B     -XX:+UseG1GC
+-Xms1g   = spend msec:11659, sec:11,  CPU usage: 17.7%   GC activity: 1.%    Used: 330,033,240B     -XX:+UseG1GC
+-Xms2g   = spend msec:11302, sec:11,  CPU usage: 12.7%   GC activity: 0.7%   Used: 1,138,756,608B   -XX:+UseG1GC
+-Xms3g   = spend msec:11186, sec:11,  CPU usage: 16.7%   GC activity: 1.0%   Used: 1,628,861,776B   -XX:+UseG1GC
+-Xms4g   = spend msec:13233, sec:13,  CPU usage: 8.6%    GC activity: 0.0%   Used: 1,710,884,864B   -XX:+UseG1GC
+
+-Xms512m = spend msec:15373, sec:15,  CPU usage: 19.3%  GC activity: 5.7%    Used: 536,870,912B    -XX:+UseZGC
+-Xms2g   = spend msec:6645, sec:6,    CPU usage: 24.5%  GC activity: 4.9%    Used: 1,205,862,400B  -XX:+UseZGC
+-Xms3g   = spend msec:6150, sec:6,    CPU usage: 16.1%  GC activity: 5.1%    Used: 1,627,389,952B  -XX:+UseZGC
+-Xms4g   = spend msec:6648, sec:6,    CPU usage: 27.7%  GC activity: 10.5%   Used: 910,163,968B    -XX:+UseZGC
+
+
+=================================================================================
+(2) с изменением кода || оптимальный размер Heap 256m
+=================================================================================
+
+-Xms96m =  недостаточно Heap для запуска  -XX:+UseG1GC
+-Xms128m = spend msec:3066, sec:3      -XX:+UseG1GC
+-Xms256m = spend msec:2836, sec:2      -XX:+UseG1GC
+-Xms512m = spend msec:2292, sec:2      -XX:+UseG1GC
+-Xms1g   = spend msec:2358, sec:2      -XX:+UseG1GC
+-Xms2g   = spend msec:2328, sec:2      -XX:+UseG1GC
+-Xms3g   = spend msec:2096, sec:2      -XX:+UseG1GC
+-Xms4g   = spend msec:2186, sec:2      -XX:+UseG1GC
