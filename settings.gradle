@@ -10,4 +10,5 @@
 rootProject.name = '2021-12-otus-java-dokuchaev'
 include 'hw01-gradle'
 include 'hw02-generics'
+include 'hw06-annotations'
 
