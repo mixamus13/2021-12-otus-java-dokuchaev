@@ -1,9 +1,7 @@
 package ru.otus.homework;
 
-import java.lang.reflect.InvocationHandler;
-import java.lang.reflect.Method;
-import java.lang.reflect.Parameter;
-import java.lang.reflect.Proxy;
+import java.lang.reflect.*;
+import java.util.Arrays;
 
 public class ProxyCustom {
 
@@ -30,10 +28,10 @@ public class ProxyCustom {
 
             Class<TestLoggingImpl> clazz = TestLoggingImpl.class;
             Method methodCalculation = clazz.getDeclaredMethod("calculation", int.class);
+            Parameter[] parameters = methodCalculation.getParameters();
+            System.out.println("parameters = " + Arrays.toString(parameters));
 
             if (methodCalculation.isAnnotationPresent(Log.class)) {
-                Parameter[] parameters = methodCalculation.getParameters();
-                System.out.println(parameters[0]);
                 System.out.println("executed method: " + methodCalculation.getName());
                 return method.invoke(originalInterface, args);
             }
