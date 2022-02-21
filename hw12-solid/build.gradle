@@ -1,0 +1,16 @@
+plugins {
+    id 'java'
+}
+
+group 'ru.otus.homework'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+}
+
+test {
+    useJUnitPlatform()
+}
