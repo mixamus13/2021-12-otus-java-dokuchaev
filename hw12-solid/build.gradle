@@ -9,6 +9,8 @@ repositories {
 }
 
 dependencies {
+    implementation 'org.projectlombok:lombok'
+    implementation 'org.projectlombok:lombok'
 }
 
 test {
