@@ -1,4 +1,4 @@
-package ru.otus.homework;
+package ru.otus.homework.domain;
 
 public interface TestLogging {
     void calculation(int paramOne);
