@@ -6,5 +6,4 @@ public class OriginalClassImpl implements OriginalInterface {
     public void originalAction(String param) {
         new TestLoggingImpl().calculation(6);
     }
-
 }

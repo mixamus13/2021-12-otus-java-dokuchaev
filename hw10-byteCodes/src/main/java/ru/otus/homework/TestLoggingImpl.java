@@ -1,30 +1,20 @@
 package ru.otus.homework;
 
-import java.util.Arrays;
-
 public class TestLoggingImpl implements TestLogging {
-
-
-    @Override
-    public int calculation(int param1) {
-        return param1;
-    }
-
-    @Override
-    public int calculation(int param1, int param2) {
-        int[] params = {param1, param2};
-        return calculation(params);
-    }
 
     @Log
     @Override
-    public int calculation(int param1, int param2, int param3) {
-        int[] params = {param1, param2, param3};
-        return calculation(params);
+    public void calculation(int paramOne) {
+        System.out.println("calculation 1 param");
     }
 
     @Override
-    public int calculation(int[] params) {
-        return Arrays.stream(params).sum();
+    public void calculation(int paramOne, int paramTwo) {
+        System.out.println("calculation 1 param");
+    }
+
+    @Override
+    public void calculation(int paramOne, int paramTwo, int paramThree) {
+        System.out.println("calculation 3 param");
     }
 }

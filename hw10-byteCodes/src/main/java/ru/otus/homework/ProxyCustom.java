@@ -1,45 +1,36 @@
 package ru.otus.homework;
 
-import java.lang.reflect.*;
-import java.util.*;
+import java.lang.reflect.InvocationHandler;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
+import java.lang.reflect.Proxy;
+import java.util.Arrays;
+import java.util.List;
 
 public class ProxyCustom {
 
     private ProxyCustom() {
     }
 
-    static OriginalInterface createMyClass() {
-        InvocationHandler invocationHandler = new CustomInvocationHandler(new OriginalClassImpl());
+    static OriginalInterface createMyClass(Class<?> clazz) {
+
+        List<Method> methods = Arrays.stream(clazz.getDeclaredMethods())
+                .filter(method -> method.isAnnotationPresent(Log.class))
+                .toList();
+
+        OriginalClassImpl origin = null;
+        try {
+            origin = (OriginalClassImpl) clazz.getDeclaredConstructor().newInstance();
+        } catch (InstantiationException | IllegalAccessException | InvocationTargetException | NoSuchMethodException e) {
+            e.printStackTrace();
+        }
+        if (methods.isEmpty()) {
+            return origin;
+        }
+
+        InvocationHandler invocationHandler = new CustomInvocationHandler(origin);
         return (OriginalInterface) Proxy.newProxyInstance(CustomInvocationHandler.class.getClassLoader(),
                 new Class<?>[]{OriginalInterface.class},
                 invocationHandler);
-    }
-
-    static final class CustomInvocationHandler implements InvocationHandler {
-        private final OriginalInterface originalInterface;
-        private final Map<Method, Boolean> methodSet;
-
-        CustomInvocationHandler(OriginalInterface originalInterface) {
-            this.originalInterface = originalInterface;
-            methodSet = new HashMap<>();
-        }
-
-        @Override
-        public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
-
-            if (!methodSet.containsKey(method)) {
-                Method originalMethod = originalInterface.getClass().getMethod(method.getName(), method.getParameterTypes());
-                methodSet.put(originalMethod, originalMethod.isAnnotationPresent(Log.class));
-            }
-            if (Boolean.TRUE.equals(methodSet.get(method))) {
-                doLog(method, args);
-            }
-            return method.invoke(originalInterface, args);
-        }
-
-        private void doLog(Method method, Object[] args) {
-            System.out.print(method.getName() + ": ");
-            System.out.println(Arrays.toString(args));
-        }
     }
 }
