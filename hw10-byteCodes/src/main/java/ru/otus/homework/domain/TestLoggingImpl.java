@@ -4,10 +4,10 @@ import ru.otus.homework.annotation.Log;
 
 public class TestLoggingImpl implements TestLogging {
 
-    @Log
     @Override
     public void calculation(int paramOne) { }
 
+    @Log
     @Override
     public void calculation(int paramOne, int paramTwo) { }
 
