@@ -1,0 +1,28 @@
+plugins {
+    id 'java'
+    id 'com.github.johnrengelman.shadow'
+}
+
+sourceCompatibility = JavaVersion.VERSION_17
+targetCompatibility = JavaVersion.VERSION_17
+
+dependencies {
+    implementation 'ch.qos.logback:logback-classic'
+    implementation 'org.projectlombok:lombok:1.18.22'
+    implementation 'org.ow2.asm:asm-commons:9.2'
+}
+
+task shadowProxyDemo(type: Jar, dependsOn: shadowJar) {
+    archiveBaseName.set('ProxyAgent')
+    manifest {
+        attributes 'Main-Class': 'ru.otus.homework.ProxyAgent'
+        attributes 'Premain-Class': 'ru.otus.homework.Agent'
+    }
+    from zipTree(shadowJar.archiveFile)
+}
+
+tasks.build.dependsOn tasks.shadowProxyDemo
+
+test {
+    useJUnitPlatform()
+}

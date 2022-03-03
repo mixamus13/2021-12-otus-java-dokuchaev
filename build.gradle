@@ -30,6 +30,8 @@ allprojects {
         }
         dependencies {
             dependency 'com.google.guava:guava:31.0.1-jre'
+            dependency 'ch.qos.logback:logback-classic:1.2.10'
+            dependency 'org.projectlombok:lombok:1.18.22'
         }
     }
 
