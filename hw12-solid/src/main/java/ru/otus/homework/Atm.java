@@ -1,6 +1,7 @@
 package ru.otus.homework;
 
 public interface Atm {
-    Currency getMoney(Currency currency);
-    Currency giveMoney(Currency currency);
+
+    Double getMoney(Curency sum);
+    Double giveMoney(Curency sum);
 }

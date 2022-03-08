@@ -1,19 +1,15 @@
 package ru.otus.homework;
 
-public class Ruble {
+public class Ruble implements Curency {
 
-    private final int banknote;
+    private final Double banknote;
 
-    public Ruble(int banknote) {
+    public Ruble(Double banknote) {
         this.banknote = banknote;
     }
 
-    public int getBanknote() {
-        return banknote;
-    }
-
     @Override
-    public String toString() {
-        return "" + banknote;
+    public Double getBanknote() {
+        return banknote;
     }
 }

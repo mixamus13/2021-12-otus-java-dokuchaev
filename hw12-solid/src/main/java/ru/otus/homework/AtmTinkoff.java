@@ -3,12 +3,14 @@ package ru.otus.homework;
 public class AtmTinkoff implements Atm {
 
     @Override
-    public Currency getMoney(Currency currency) {
-        return currency;
+    public Double getMoney(Curency sum) {
+        Double sumBanknote = sum.getBanknote();
+        return Double.sum(sumBanknote, sumBanknote);
     }
 
     @Override
-    public Currency giveMoney(Currency currency) {
-        return currency;
+    public Double giveMoney(Curency sum) {
+        Double sumBanknote = sum.getBanknote();
+        return sumBanknote -= sumBanknote;
     }
 }
