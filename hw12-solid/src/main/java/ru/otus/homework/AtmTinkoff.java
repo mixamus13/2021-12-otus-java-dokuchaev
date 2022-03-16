@@ -1,16 +1,23 @@
 package ru.otus.homework;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class AtmTinkoff implements Atm {
 
+    List<Double> dollars = new ArrayList<>();
+
     @Override
-    public Double getMoney(Curency sum) {
-        Double sumBanknote = sum.getBanknote();
-        return Double.sum(sumBanknote, sumBanknote);
+    public Double inMoney(Curency curency) {
+        Double sum = 0.0;
+        dollars.add(sum += curency.getBanknote());
+        return sum;
     }
 
     @Override
-    public Double giveMoney(Curency sum) {
-        Double sumBanknote = sum.getBanknote();
-        return sumBanknote -= sumBanknote;
+    public Double outMoney(Curency curency) {
+        Double sum = 0.0;
+        dollars.add(sum -= curency.getBanknote());
+        return sum;
     }
 }

@@ -1,15 +1,20 @@
 package ru.otus.homework;
 
-public class Dollar implements Curency {
+public enum Dollar implements Curency {
 
-    private final Double banknote;
+    TEN(10.00),
+    TWENTY(20.00),
+    FIFTEEN(50.00),
+    HUNDRED(100.00);
 
-    public Dollar(Double banknote) {
-        this.banknote = banknote;
+    private final double nominal;
+
+    Dollar(double nominal) {
+        this.nominal = nominal;
     }
 
     @Override
     public Double getBanknote() {
-        return banknote;
+        return nominal;
     }
 }
