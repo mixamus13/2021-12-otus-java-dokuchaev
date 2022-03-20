@@ -1,18 +1,22 @@
 package ru.otus.homework;
 
+import java.util.Arrays;
+
 public class App {
 
     public static void main(String... args) {
 
-        Atm tinkoff = new AtmTinkoff();
+        System.out.println("------------------------------------------");
+        Nominal[] nominals = Nominal.values();
+        System.out.println("nominals = " + Arrays.toString(nominals));
 
-        Double hundred = tinkoff.inMoney(Dollar.HUNDRED);
-        System.out.println("inMoney = " + hundred);
+        System.out.println("------------------------------------------");
+        Banknote banknote = new Banknote(Nominal.FIFTY);
+        System.out.println("banknote.getNominal() = " + banknote.getNominal());
 
-        Double fifteen = tinkoff.inMoney(Dollar.FIFTEEN);
-        System.out.println("fifteen = " + fifteen);
-
-        Dollar usdOne = Dollar.FIFTEEN;
-        System.out.println("outMoney = " + tinkoff.outMoney(usdOne));
+        System.out.println("------------------------------------------");
+        Cell cell = new Cell(new Banknote(Nominal.HUNDRED));
+        cell.getBanknotes();
+        System.out.println("cell = " + cell);
     }
 }
