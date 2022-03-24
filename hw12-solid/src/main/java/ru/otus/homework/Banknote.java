@@ -1,21 +1,25 @@
 package ru.otus.homework;
 
-public class Banknote {
+public enum Banknote {
 
-    private final Nominal nominal;
+    TEN(10),
+    TWENTY(20),
+    FIFTY(50),
+    HUNDRED(100);
 
-    public Banknote(Nominal nominal) {
-        this.nominal = nominal;
+    private final int amount;
+
+    Banknote(int amount) {
+        this.amount = amount;
     }
 
-    public Nominal getNominal() {
-        return nominal;
+    public int getAmount() {
+        return amount;
     }
 
     @Override
     public String toString() {
-        return "Banknote{" +
-                "nominal=" + nominal +
-                '}';
+        return "Banknote{" + amount +
+                "$}";
     }
 }
