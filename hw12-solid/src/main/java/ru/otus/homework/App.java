@@ -4,25 +4,25 @@ public class App {
 
     public static void main(String... args) {
 
-        Atm atm = new Atm();
+        AtmTinkoff atmTinkoff = new AtmTinkoff();
 
-        atm.addCellTen();
-        atm.addCellTen();
+        atmTinkoff.addCellTen();
+        atmTinkoff.addCellTen();
 
-        atm.addCellTwenty();
+        atmTinkoff.addCellTwenty();
 
-        atm.addCellFifties();
-        atm.addCellFifties();
+        atmTinkoff.addCellFifties();
+        atmTinkoff.addCellFifties();
 
-        atm.addCellHundred();
-        atm.addCellHundred();
-        atm.addCellHundred();
-        atm.addCellHundred();
-        atm.addCellHundred();
+        atmTinkoff.addCellHundred();
+        atmTinkoff.addCellHundred();
+        atmTinkoff.addCellHundred();
+        atmTinkoff.addCellHundred();
+        atmTinkoff.addCellHundred();
 
-        System.out.println("banknote 10$  = " + atm.getCellTens());
-        System.out.println("banknote 20$  = " + atm.getCellTwenties());
-        System.out.println("banknote 50$ = " + atm.getCellFifties());
-        System.out.println("banknote 100$ = " + atm.getCellHundreds());
+        System.out.println("banknote 10$  = " + atmTinkoff.getCellTens());
+        System.out.println("banknote 20$  = " + atmTinkoff.getCellTwenties());
+        System.out.println("banknote 50$ = " + atmTinkoff.getCellFifties());
+        System.out.println("banknote 100$ = " + atmTinkoff.getCellHundreds());
     }
 }

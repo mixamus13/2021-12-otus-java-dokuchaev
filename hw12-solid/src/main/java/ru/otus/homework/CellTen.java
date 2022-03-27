@@ -4,16 +4,18 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class CellTen {
+public class CellTen implements Cell {
 
     private final List<Banknote> banknoteList = new ArrayList<>();
     private final Banknote banknote = Banknote.TEN;
 
-    public void addBanknoteTen() {
+    @Override
+    public void addBanknote() {
         banknoteList.add(banknote);
     }
 
-    public List<Banknote> getBanknoteTens() {
+    @Override
+    public List<Banknote> getBanknote() {
         banknoteList.add(banknote);
         return Collections.unmodifiableList(banknoteList);
     }
