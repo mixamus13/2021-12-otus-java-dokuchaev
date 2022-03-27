@@ -19,7 +19,6 @@ public enum Banknote {
 
     @Override
     public String toString() {
-        return "Banknote{" + amount +
-                "$}";
+        return "Banknote = " + amount + "$";
     }
 }

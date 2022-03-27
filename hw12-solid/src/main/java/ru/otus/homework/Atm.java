@@ -1,53 +1,44 @@
 package ru.otus.homework;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class Atm {
 
-    private final List<CellTen> cellTens = new ArrayList<>();
-    private final List<CellTwenty> cellTwenties = new ArrayList<>();
-    private final List<CellFifty> cellFifties = new ArrayList<>();
-    private final List<CellHundred> cellHundreds = new ArrayList<>();
+    private final CellTen cellTen = new CellTen();
+    private final CellTwenty cellTwenty = new CellTwenty();
+    private final CellFifty cellFifty = new CellFifty();
+    private final CellHundred cellHundred = new CellHundred();
 
-    public List<CellTen> getCellTens() {
-        return cellTens;
-    }
-
-    public void addCellTens() {
-        var cellTen = new CellTen();
+    public void addCellTen() {
         cellTen.addBanknoteTen();
-        cellTens.add(cellTen);
     }
 
-    public List<CellTwenty> getCellTwenties() {
-        return cellTwenties;
+    public List<Banknote> getCellTens() {
+        return cellTen.getBanknoteTens();
     }
 
-    public void addCellTwenties() {
-        var cellTwenty = new CellTwenty();
+    public void addCellTwenty() {
         cellTwenty.addBanknoteTwenty();
-        cellTwenties.add(cellTwenty);
     }
 
-    public List<CellFifty> getCellFifties() {
-        return cellFifties;
+    public List<Banknote> getCellTwenties() {
+        return cellTwenty.getBanknoteTwenties();
     }
 
     public void addCellFifties() {
-        var cellFifty = new CellFifty();
         cellFifty.addBanknoteFifty();
-        cellFifties.add(cellFifty);
     }
 
-    public List<CellHundred> getCellHundreds() {
-        return cellHundreds;
+    public List<Banknote> getCellFifties() {
+        return cellFifty.getBanknoteFifties();
     }
 
-    public void addCellHundreds() {
-        var cellHundred = new CellHundred();
+    public void addCellHundred() {
         cellHundred.addBanknoteHundred();
-        cellHundreds.add(cellHundred);
+    }
+
+    public List<Banknote> getCellHundreds() {
+        return cellHundred.getBanknoteHundreds();
     }
 }
 
