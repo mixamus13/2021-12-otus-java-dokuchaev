@@ -7,7 +7,11 @@ import java.util.List;
 public class CellTwenty implements Cell {
 
     private final List<Banknote> banknoteList = new ArrayList<>();
-    private final Banknote banknote = Banknote.TWENTY;
+    private final Banknote banknote;
+
+    public CellTwenty(Banknote banknote) {
+        this.banknote = banknote;
+    }
 
     @Override
     public void addBanknote() {

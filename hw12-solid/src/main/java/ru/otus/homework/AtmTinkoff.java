@@ -4,10 +4,10 @@ import java.util.List;
 
 public class AtmTinkoff implements Atm {
 
-    private final Cell cellTen = new CellTen();
-    private final Cell cellTwenty = new CellTwenty();
-    private final Cell cellFifty = new CellFifty();
-    private final Cell cellHundred = new CellHundred();
+    private final Cell cellTen = new CellTen(Banknote.TEN);
+    private final Cell cellTwenty = new CellTwenty(Banknote.TWENTY);
+    private final Cell cellFifty = new CellFifty(Banknote.FIFTY);
+    private final Cell cellHundred = new CellHundred(Banknote.HUNDRED);
 
     @Override
     public void addCellTen() {
