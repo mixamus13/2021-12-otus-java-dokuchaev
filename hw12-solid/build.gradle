@@ -1,0 +1,18 @@
+plugins {
+    id 'java'
+}
+
+group 'ru.otus.homework'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.projectlombok:lombok'
+    implementation 'org.projectlombok:lombok'
+}
+
+test {
+    useJUnitPlatform()
+}
